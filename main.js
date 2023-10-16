@@ -27,25 +27,46 @@ const showQuestion = (question) => {
   const answers = [];
   answers.push({ text: question.correct_answer, correct: true });
   question.incorrect_answers.forEach((element) => {
-    answers.push({ text: element });
+    answers.push({ text: element, correct: false });
+    answers.sort(function () {
+      return Math.random() - 0.5
+    })
   });
-  console.log(answers);
-
+  console.log(answers)
   answers.forEach((answer) => {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
-    if (answers.correct) {
+    if (answer.correct === true) {
       button.dataset.correct = true;
     }
+    button.addEventListener("click", selectAnswer)
     answerButtons.appendChild(button);
   });
-
-  
 };
 
 const setNextQuestion = () => {
   showQuestion(questions[currentQuestionIndex]);
 };
+
+const setStatusClass = (element, correct) => {
+  if (correct) {
+    element.classList.add("correct")
+  } else {
+    element.classList.add("wrong")
+  }
+}
+
+const selectAnswer = () => {
+  Array.from(answerButtons.children).forEach((button) => {
+    setStatusClass(button, button.dataset.correct === "true")
+  })
+  if (questions.length > currentQuestionIndex + 1) {
+    nextButton.classList.remove("hide")
+  } else {
+    startButton.innerHTML = "Restart"
+    startButton.classList.remove("hide")
+  }
+}
 
 startButton.addEventListener("click", startGame);
 // const hideView = () => {
