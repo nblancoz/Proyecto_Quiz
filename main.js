@@ -5,9 +5,19 @@ const nextButton = document.getElementById("nextButton");
 const questionContainerElement = document.getElementById("questionContainer");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answerButtons");
-
 let currentQuestionIndex;
+
+const hideView = () => {
+  home.classList.add("hide")
+}
+
+const goHome = () => {
+  hideView()
+  home.classList.remove("hide")
+}
+
 const startGame = () => {
+  resetState()
   startButton.classList.add("hide");
   currentQuestionIndex = 0;
   questionContainerElement.classList.remove("hide");
@@ -44,7 +54,13 @@ const showQuestion = (question) => {
   });
 };
 
+nextButton.addEventListener("click", () => {
+  currentQuestionIndex++;
+  setNextQuestion()
+})
+
 const setNextQuestion = () => {
+  resetState()
   showQuestion(questions[currentQuestionIndex]);
 };
 
@@ -68,28 +84,10 @@ const selectAnswer = () => {
   }
 }
 
+const resetState = () => {
+  nextButton.classList.add("hide")
+  answerButtons.innerHTML = ""
+}
+
+homeNav.addEventListener("click", goHome)
 startButton.addEventListener("click", startGame);
-// const hideView = () => {
-//   home.classList.add("hide")
-// }
-
-// const goHome = () => {
-//   hideView()
-//   home.classList.remove("hide")
-// }
-
-// const goAbout = () => {
-//   hideView()
-//   about.classList.remove("hide")
-// }
-
-// homeNav.addEventListener("click", goHome)
-
-// let users = [];
-// axios
-//   .get(
-//     "https://opentdb.com/api.php?amount=10&category=9&difficulty=medium&type=multiple"
-//   )
-//   .then((users) => console.log(users))
-//   .catch((err) => console.error(err));
-// console.log(axios);
