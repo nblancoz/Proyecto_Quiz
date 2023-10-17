@@ -8,12 +8,14 @@ const questionContainerElement = document.getElementById("questionContainer");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answerButtons");
 const cardContainer = document.getElementById("cardContainer");
+const resultsContainer = document.getElementById("resultsContainer")
 let currentQuestionIndex;
 
 const goHome = () => {
   results.classList.add("hide");
   questionContainerElement.classList.add("hide");
   nextButton.classList.add("d-flex");
+  resultsContainer.classList.add("hide")
   cardContainer.classList.replace("d-none", "d-flex");
   results.style = "display: none";
   home.style = "display:flex;";
@@ -28,6 +30,7 @@ const goResults = () => {
   questionContainerElement.classList.add("hide");
   startButton.classList.add("hide");
   results.classList.remove("hide");
+  resultsContainer.classList.remove("hide")
 };
 
 const startGame = () => {
