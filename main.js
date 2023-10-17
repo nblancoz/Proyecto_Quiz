@@ -49,7 +49,6 @@ axios
   )
   .then((res) => (questions = res.data.results))
   .catch((err) => console.error(err));
-
 const showQuestion = (question) => {
   questionElement.innerHTML = question.question;
   const answers = [];
@@ -85,10 +84,11 @@ const setNextQuestion = () => {
 
 const setStatusClass = (element, correct) => {
   if (correct) {
-    element.classList.add("correct")
+    element.classList.add("correct", "disabled")
     element.classList.replace("btn-outline-light", "btn-success")
+
   } else {
-    element.classList.add("wrong")
+    element.classList.add("wrong", "disabled")
     element.classList.replace("btn-outline-light", "btn-danger")
   }
 };
