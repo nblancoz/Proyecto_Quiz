@@ -1,5 +1,7 @@
 const home = document.getElementById("home");
 const homeNav = document.getElementById("homeNav");
+const results = document.getElementById("results")
+const resultsNav = document.getElementById("resultsNav")
 const startButton = document.getElementById("startButton");
 const nextButton = document.getElementById("nextButton");
 const questionContainerElement = document.getElementById("questionContainer");
@@ -7,13 +9,17 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answerButtons");
 let currentQuestionIndex;
 
-const hideView = () => {
-  home.classList.add("hide")
-}
-
 const goHome = () => {
-  hideView()
+  results.classList.add("hide")
   home.classList.remove("hide")
+  startButton.classList.remove("hide")
+  
+}
+const goResults = () => {
+  home.classList.add("hide")
+  questionContainerElement.classList.add("hide")
+  startButton.classList.add("hide")
+  results.classList.remove("hide")
 }
 
 const startGame = () => {
@@ -90,4 +96,5 @@ const resetState = () => {
 }
 
 homeNav.addEventListener("click", goHome)
+resultsNav.addEventListener("click", goResults)
 startButton.addEventListener("click", startGame);
