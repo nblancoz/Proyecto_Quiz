@@ -11,12 +11,14 @@ let currentQuestionIndex;
 
 const goHome = () => {
   results.classList.add("hide")
+  home.style= "display:flex;"
   home.classList.remove("hide")
   startButton.classList.remove("hide")
-  
+
 }
 const goResults = () => {
   home.classList.add("hide")
+  home.style= "display:none;"
   questionContainerElement.classList.add("hide")
   startButton.classList.add("hide")
   results.classList.remove("hide")
