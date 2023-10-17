@@ -8,6 +8,7 @@ nav {
   font-family: monospace;
   display: flex;
   justify-content: center;
+  text-align: center;
   margin: 10px;
 }
 #results {
