@@ -9,6 +9,11 @@ nav {
   display: flex;
   justify-content: center;
 }
+#results {
+  font-family: monospace;
+  display: none;
+  justify-content: center;
+}
 .correct {
   background-color: rgb(0, 255, 72);
 }
