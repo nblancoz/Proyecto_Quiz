@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
-    <nav>
-        <span id="homeNav">Home</span>
-        <span id="resultsNav">Results</span>
-    </nav>
-    <article id="home">
-        <h1>Home Page</h1>
-    </article>
-    <article id="results" class="hide">
-        <h1>Results</h1>
-    </article>
-    <article id="questionContainer" class="hide">
-        <section id="question">Question</section>
-        <section id="answerButtons"></section>
-    </article>
-    <article>
-        <button id="startButton">Start</button>
-        <button id="nextButton" class="hide">Next</button>
-    </article>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="main.js"></script>
+  <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">Quiz</a>
+      <span id="homeNav">Start the quiz</span>
+      <span id="resultsNav">Results</span>
+    </div>
+  </nav>
+  <article id="home">
+    <h1>Quiz</h1>
+  </article>
+  <article id="results" class="hide">
+    <h1>Results</h1>
+  </article>
+  <div id="cardContainer" class="container d-flex justify-content-center align-items-center">
+    <div class="card border-primary mb-3" style="max-width: 20rem;">
+      <div class="card-header">The quiz:</div>
+      <div class="card-body">
+        <p class="card-text">Contains ten questios about general knowledge.</p>
+        <p>Dificulty: Easy.</p>
+        <p>If you want to start the quiz click on "start".</p>
+        <button type="button" class="btn btn-outline-success" id="startButton">Start</button>
+      </div>
+    </div>
+  </div>
+  <article id="questionContainer" class="hide">
+    <div id="cardContainer" class="container d-flex justify-content-center align-items-center">
+      <div class="card border-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Question:</div>
+        <div class="card-body">
+          <p class="card-text">
+          <section id="question">Question</section>
+          </p>
+          <div id="answerButtons" class="btnDiv"></div>
+          <button type="button" class="btn btn-outline-success d-none" id="nextButton">Next</button>
+        </div>
+      </div>
+    </div>
+  </article>
+  <article>   
+  </article>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
