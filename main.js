@@ -1,7 +1,7 @@
 const home = document.getElementById("home");
 const homeNav = document.getElementById("homeNav");
 const results = document.getElementById("results");
-const resultsNav = document.getElementById("resultsNav");
+// const resultsNav = document.getElementById("resultsNav");
 const startButton = document.getElementById("startButton");
 const nextButton = document.getElementById("nextButton");
 const questionContainerElement = document.getElementById("questionContainer");
@@ -12,13 +12,13 @@ const resultsContainer = document.getElementById("resultsContainer");
 const answerComprobation = document.getElementById("answerComprobation")
 const incorrectAnswer = document.getElementById("incorrectAnswer")
 const correctAnswer = document.getElementById("correctAnswer")
+const resultCard = document.getElementById("resultCard")
 let currentQuestionIndex;
 
 const goHome = () => {
   results.classList.add("hide");
   questionContainerElement.classList.add("hide");
   nextButton.classList.add("d-flex");
-  resultsContainer.classList.add("hide");
   cardContainer.classList.replace("d-none", "d-flex");
   results.style = "display: none";
   home.style = "display:flex;";
@@ -33,8 +33,21 @@ const goResults = () => {
   questionContainerElement.classList.add("hide");
   startButton.classList.add("hide");
   results.classList.remove("hide");
-  resultsContainer.classList.remove("hide");
+  resultCard.classList.remove("hide");
+  resultCard.classList.add("d-none")
+  showResults()
 };
+const showResults = () => {
+  home.classList.add("hide");
+  home.style = "display:none;";
+  results.style = "display: flex";
+  cardContainer.classList.add("d-none");
+  questionContainerElement.classList.add("hide");
+  startButton.classList.add("hide");
+  results.classList.remove("hide");
+  resultsContainer.classList.remove("hide")
+  resultCard.classList.replace("d-none", "d-flex")
+}
 
 const startGame = () => {
   resetState();
@@ -76,7 +89,6 @@ const showQuestion = (question) => {
         answerComprobation.innerHTML = "Excelent!"
         correctAnswer.play()
       } else {
-        console.log("Respondiste mal!");
         answerComprobation.classList.remove("hide")
         answerComprobation.innerHTML = "You choose the wrong answer!"
         incorrectAnswer.play()
@@ -90,10 +102,14 @@ const showQuestion = (question) => {
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
   setNextQuestion();
+  if (currentQuestionIndex === 9) {
+      setTimeout(goResults, 5000)
+    }
 });
 
 const setNextQuestion = () => {
   resetState();
+  answerComprobation.classList.add("hide")
   showQuestion(questions[currentQuestionIndex]);
 };
 
@@ -114,9 +130,9 @@ const selectAnswer = () => {
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.replace("d-none", "d-flex");
   } else {
-    startButton.innerHTML = "Restart";
-    startButton.classList.remove("hide");
-    cardContainer.classList.replace("d-none", "d-flex");
+    // startButton.innerHTML = "Restart";
+    startButton.classList.add("hide");
+    cardContainer.classList.add("d-none");
   }
 };
 
@@ -126,5 +142,5 @@ const resetState = () => {
 };
 
 homeNav.addEventListener("click", goHome);
-resultsNav.addEventListener("click", goResults);
+// resultsNav.addEventListener("click", goResults);
 startButton.addEventListener("click", startGame);
