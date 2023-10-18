@@ -36,6 +36,7 @@ const goResults = () => {
   resultCard.classList.remove("hide");
   resultCard.classList.add("d-none")
   showResults()
+  printResult()
 };
 const showResults = () => {
   home.classList.add("hide");
@@ -135,6 +136,10 @@ const selectAnswer = () => {
     cardContainer.classList.add("d-none");
   }
 };
+const printResult = () => {
+  showResults()
+  console.log("prueba")
+}
 
 const resetState = () => {
   nextButton.classList.add("d-none");
