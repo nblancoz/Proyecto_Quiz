@@ -8,14 +8,14 @@ const questionContainerElement = document.getElementById("questionContainer");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answerButtons");
 const cardContainer = document.getElementById("cardContainer");
-const resultsContainer = document.getElementById("resultsContainer")
+const resultsContainer = document.getElementById("resultsContainer");
 let currentQuestionIndex;
 
 const goHome = () => {
   results.classList.add("hide");
   questionContainerElement.classList.add("hide");
   nextButton.classList.add("d-flex");
-  resultsContainer.classList.add("hide")
+  resultsContainer.classList.add("hide");
   cardContainer.classList.replace("d-none", "d-flex");
   results.style = "display: none";
   home.style = "display:flex;";
@@ -30,7 +30,7 @@ const goResults = () => {
   questionContainerElement.classList.add("hide");
   startButton.classList.add("hide");
   results.classList.remove("hide");
-  resultsContainer.classList.remove("hide")
+  resultsContainer.classList.remove("hide");
 };
 
 const startGame = () => {
@@ -62,12 +62,19 @@ const showQuestion = (question) => {
   console.log(answers);
   answers.forEach((answer) => {
     const button = document.createElement("button");
-    button.classList.add("btn", "btn-outline-light")
+    button.classList.add("btn", "btn-outline-light");
     button.innerHTML = answer.text;
     if (answer.correct === true) {
       button.dataset.correct = true;
     }
-    button.addEventListener("click", selectAnswer);
+    button.addEventListener("click", (e) => {
+      if (e.target.dataset.correct === "true") {
+        console.log("Respondiste bien!");
+      } else {
+        console.log("Respondiste mal!");
+      }
+      selectAnswer();
+    });
     answerButtons.appendChild(button);
   });
 };
@@ -84,12 +91,11 @@ const setNextQuestion = () => {
 
 const setStatusClass = (element, correct) => {
   if (correct) {
-    element.classList.add("correct", "disabled")
-    element.classList.replace("btn-outline-light", "btn-success")
-
+    element.classList.add("correct", "disabled");
+    element.classList.replace("btn-outline-light", "btn-success");
   } else {
-    element.classList.add("wrong", "disabled")
-    element.classList.replace("btn-outline-light", "btn-danger")
+    element.classList.add("wrong", "disabled");
+    element.classList.replace("btn-outline-light", "btn-danger");
   }
 };
 
