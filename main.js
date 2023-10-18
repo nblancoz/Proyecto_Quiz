@@ -9,6 +9,9 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answerButtons");
 const cardContainer = document.getElementById("cardContainer");
 const resultsContainer = document.getElementById("resultsContainer");
+const answerComprobation = document.getElementById("answerComprobation")
+const incorrectAnswer = document.getElementById("incorrectAnswer")
+const correctAnswer = document.getElementById("correctAnswer")
 let currentQuestionIndex;
 
 const goHome = () => {
@@ -69,9 +72,14 @@ const showQuestion = (question) => {
     }
     button.addEventListener("click", (e) => {
       if (e.target.dataset.correct === "true") {
-        console.log("Respondiste bien!");
+        answerComprobation.classList.remove("hide")
+        answerComprobation.innerHTML = "Excelent!"
+        correctAnswer.play()
       } else {
         console.log("Respondiste mal!");
+        answerComprobation.classList.remove("hide")
+        answerComprobation.innerHTML = "You choose the wrong answer!"
+        incorrectAnswer.play()
       }
       selectAnswer();
     });

@@ -23,6 +23,9 @@ nav {
   flex-direction: column;
   gap: 10px;
 }
+#answerComprobation {
+  margin-top: 10px;
+}
 #nextButton {
   display: flex;
   flex-direction: column;
