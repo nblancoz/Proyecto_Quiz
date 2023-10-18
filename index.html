@@ -6,6 +6,7 @@
   <title>Quiz</title>
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/bootstrap.min.css">
+  <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
@@ -42,8 +43,8 @@
           </p>
           <div id="answerButtons" class="btnDiv"></div>
           <p id="answerComprobation" class="hide"></p>
-          <audio id="incorrectAnswer" class="hide" src="./audios/incorrect_answer.mp3"></audio>
-          <audio id="correctAnswer" class="hide" src="./audios/correct_answer.mp3"></audio>
+          <audio id="incorrectAnswer" class="hide" src="./assets/incorrect_answer.mp3"></audio>
+          <audio id="correctAnswer" class="hide" src="./assets/correct_answer.mp3"></audio>
           <button type="button" class="btn btn-outline-success d-none" id="nextButton">Next</button>
         </div>
       </div>
@@ -54,8 +55,8 @@
         <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
           <div class="card-header">Your results:</div>
           <div class="card-body">
-            <h4 class="card-title">Dark card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h4 id="feedback1" class="card-title"></h4>
+            <p id="feedback2" class="card-text"></p>
           </div>
         </div>
       </div>

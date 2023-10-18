@@ -13,7 +13,10 @@ const answerComprobation = document.getElementById("answerComprobation")
 const incorrectAnswer = document.getElementById("incorrectAnswer")
 const correctAnswer = document.getElementById("correctAnswer")
 const resultCard = document.getElementById("resultCard")
+const feedback1 = document.getElementById("feedback1")
+const feedback2 = document.getElementById("feedback2")
 let currentQuestionIndex;
+let correctAnswersArr = []
 
 const goHome = () => {
   results.classList.add("hide");
@@ -24,6 +27,7 @@ const goHome = () => {
   home.style = "display:flex;";
   home.classList.remove("hide");
   startButton.classList.remove("hide");
+  resultCard.classList.add("d-none")
 };
 const goResults = () => {
   home.classList.add("hide");
@@ -88,6 +92,9 @@ const showQuestion = (question) => {
       if (e.target.dataset.correct === "true") {
         answerComprobation.classList.remove("hide")
         answerComprobation.innerHTML = "Excelent!"
+        const result = answerComprobation.value
+        correctAnswersArr.push(result)
+        // las anteriores dos lineas traté de mostrar las respuestas correctas, resultado undefined y muestra las 10 respuestas
         correctAnswer.play()
       } else {
         answerComprobation.classList.remove("hide")
@@ -138,7 +145,10 @@ const selectAnswer = () => {
 };
 const printResult = () => {
   showResults()
-  console.log("prueba")
+  feedback1.innerHTML = "Respuestas correctas:"
+  feedback2.innerHTML =  
+  console.log("Respuestas correctas: ", correctAnswersArr)
+  // esta funcion sirve, no sirve el array "correctAnswersArr"
 }
 
 const resetState = () => {
