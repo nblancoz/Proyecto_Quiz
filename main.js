@@ -15,6 +15,7 @@ const correctAnswer = document.getElementById("correctAnswer")
 const resultCard = document.getElementById("resultCard")
 const feedback1 = document.getElementById("feedback1")
 const feedback2 = document.getElementById("feedback2")
+const questionStatement = document.getElementById("questionStatement")
 let currentQuestionIndex;
 let correctAnswersArr = []
 
@@ -72,6 +73,7 @@ axios
   .catch((err) => console.error(err));
 const showQuestion = (question) => {
   questionElement.innerHTML = question.question;
+  questionStatement.innerHTML = `Question ${currentQuestionIndex + 1}:`
   const answers = [];
   answers.push({ text: question.correct_answer, correct: true });
   question.incorrect_answers.forEach((element) => {
