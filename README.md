@@ -4,5 +4,5 @@
 
 - Preview of the quiz
 
-    ![gif](./assets/quiz_preview.mp4)
+![foto](assets/quiz_preview.mp4)
  
