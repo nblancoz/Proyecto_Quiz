@@ -3,5 +3,6 @@
 ## Preview
 
 - Preview of the quiz
-
+<div align="center">
 ![foto](./assets/quiz_preview.gif)
+</div>
