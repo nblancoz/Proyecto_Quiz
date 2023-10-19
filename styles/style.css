@@ -31,9 +31,21 @@ nav {
   flex-direction: column;
   margin-top: 10px;
 }
-.correct {
-  background-color: rgb(0, 255, 72);
+#congrats {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
-.wrong {
-  background-color: rgb(255, 0, 0);
+#almost {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+#deception {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin: auto;
 }

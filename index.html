@@ -10,9 +10,8 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-    <div class="container-fluid">
-      <span class="navbar-brand">Quiz</span>
-      <span id="homeNav">Start the quiz</span>
+    <div id="navContainer"class="container-fluid">
+      <span style="cursor: pointer" id="homeNav" class="navbar-brand">Take the quiz</span>
     </div>
   </nav>
   <article id="home">
@@ -25,9 +24,10 @@
     <div class="card border-primary mb-3" style="max-width: 20rem;">
       <div class="card-header">The quiz:</div>
       <div class="card-body">
-        <p class="card-text">Contains ten questios about general knowledge.</p>
+        <p class="card-text">Contains ten questions about general knowledge.</p>
         <p>Dificulty: Easy.</p>
-        <p>If you want to start the quiz click on "start".</p>
+        <p>Be careful! Once you select the answer you can't change it.</p>
+        <p>When you're ready to start click on "start".</p>
         <button type="button" class="btn btn-outline-success" id="startButton">Start</button>
       </div>
     </div>
@@ -44,7 +44,7 @@
           <p id="answerComprobation" class="hide"></p>
           <audio id="incorrectAnswer" class="hide" src="./assets/incorrect_answer.mp3"></audio>
           <audio id="correctAnswer" class="hide" src="./assets/correct_answer.mp3"></audio>
-          <button type="button" class="btn btn-outline-success d-none" id="nextButton">Next</button>
+          <button type="button" class="btn btn-outline-success disabled" id="nextButton">Next</button>
         </div>
       </div>
     </div>
@@ -56,6 +56,9 @@
           <div class="card-body">
             <h4 id="feedback1" class="card-title"></h4>
             <p id="feedback2" class="card-text"></p>
+            <img id="congrats" class="hide" src="./assets/congrats.jpeg"/>
+            <img id="almost" class="hide" src="./assets/almost.jpeg" alt="">
+            <img id="deception" class="hide" src="./assets/deception.jpeg"/>
           </div>
         </div>
       </div>
