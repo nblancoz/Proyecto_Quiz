@@ -1,7 +1,6 @@
 const home = document.getElementById("home");
 const homeNav = document.getElementById("homeNav");
 const results = document.getElementById("results");
-// const resultsNav = document.getElementById("resultsNav");
 const startButton = document.getElementById("startButton");
 const nextButton = document.getElementById("nextButton");
 const questionContainerElement = document.getElementById("questionContainer");
@@ -13,12 +12,15 @@ const answerComprobation = document.getElementById("answerComprobation")
 const incorrectAnswer = document.getElementById("incorrectAnswer")
 const correctAnswer = document.getElementById("correctAnswer")
 const resultCard = document.getElementById("resultCard")
+const resultCard2 = document.getElementById("resultCard2")
 const feedback1 = document.getElementById("feedback1")
 const feedback2 = document.getElementById("feedback2")
 const questionStatement = document.getElementById("questionStatement")
+const badResult = document.getElementById("badResult")
+const goodResult = document.getElementById("goodResult")
 let currentQuestionIndex;
 let correctAnswersArr = []
-
+let result = 0
 const goHome = () => {
   results.classList.add("hide");
   questionContainerElement.classList.add("hide");
@@ -94,9 +96,7 @@ const showQuestion = (question) => {
       if (e.target.dataset.correct === "true") {
         answerComprobation.classList.remove("hide")
         answerComprobation.innerHTML = "Excelent!"
-        const result = answerComprobation.value
-        correctAnswersArr.push(result)
-        // las anteriores dos lineas traté de mostrar las respuestas correctas, resultado undefined y muestra las 10 respuestas
+        result++// las anteriores dos lineas traté de mostrar las respuestas correctas, resultado undefined y muestra las 10 respuestas
         correctAnswer.play()
       } else {
         answerComprobation.classList.remove("hide")
@@ -140,17 +140,22 @@ const selectAnswer = () => {
   if (questions.length > currentQuestionIndex + 1) {
     nextButton.classList.replace("d-none", "d-flex");
   } else {
-    // startButton.innerHTML = "Restart";
     startButton.classList.add("hide");
     cardContainer.classList.add("d-none");
   }
 };
 const printResult = () => {
   showResults()
-  feedback1.innerHTML = "Respuestas correctas:"
-  feedback2.innerHTML =  
-  console.log("Respuestas correctas: ", correctAnswersArr)
-  // esta funcion sirve, no sirve el array "correctAnswersArr"
+  feedback1.innerHTML = `Correct answers: ${result}`
+  if (result >= 5) {
+    resultCard2.classList.replace("bg-dark", "bg-success")
+    feedback2.innerHTML =  "Excelent!!!! Good job!"
+    goodResult.play()
+  } else {
+    resultCard2.classList.replace("bg-dark", "bg-danger")
+    feedback2.innerHTML =  "Sorry, you need to work harder"
+    badResult.play()
+  }
 }
 
 const resetState = () => {
@@ -159,5 +164,4 @@ const resetState = () => {
 };
 
 homeNav.addEventListener("click", goHome);
-// resultsNav.addEventListener("click", goResults);
 startButton.addEventListener("click", startGame);

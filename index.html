@@ -13,7 +13,6 @@
     <div class="container-fluid">
       <span class="navbar-brand">Quiz</span>
       <span id="homeNav">Start the quiz</span>
-      <span id="resultsNav">Results</span>
     </div>
   </nav>
   <article id="home">
@@ -52,7 +51,7 @@
   </article>
   <article id="resultsContainer" class="hide">
     <div id="resultCard" class="container d-none justify-content-center align-items-center">
-        <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+        <div id="resultCard2" class="card text-white bg-dark mb-3" style="max-width: 20rem;">
           <div class="card-header">Your results:</div>
           <div class="card-body">
             <h4 id="feedback1" class="card-title"></h4>
@@ -61,6 +60,8 @@
         </div>
       </div>
     </div>
+    <audio id="badResult" src="./assets/bad_result.mp3"></audio>
+    <audio id="goodResult" src="./assets/good_result.mp3"></audio>
   </article>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="main.js"></script>
