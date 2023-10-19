@@ -3,13 +3,9 @@
 ## About the project
 In this project the user will do a quiz of ten questions about some general knowledge, the difficulty is easy.
 
-## The technologies that let me create the projects were:
+## The technologies that I used
 
-<img align="center" alt="HTML" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
-
-<img align="center" alt="CSS" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
-
-<img align="center" alt="Rafa-Js" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+<img align="center" alt="HTML" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg"> <img align="center" alt="CSS" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg"> <img align="center" alt="Rafa-Js" height="50" width="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
 
 ## Summary of the project
 <ul>
@@ -34,7 +30,7 @@ In this project the user will do a quiz of ten questions about some general know
 
 ![foto](./assets/quiz_preview.gif)
 
-#### Licence
+### Licence
 This project is under licence of Nicolás Blanco Zappalá
 
 ### Contact
