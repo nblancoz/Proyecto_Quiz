@@ -4,5 +4,4 @@
 
 - Preview of the quiz
 
-![foto](assets/quiz_preview.mp4)
- 
+![video](assets/quiz_preview.mp4)
