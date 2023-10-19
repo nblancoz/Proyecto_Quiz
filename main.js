@@ -30,6 +30,7 @@ const goHome = () => {
   results.classList.add("hide");
   questionContainerElement.classList.add("hide");
   nextButton.classList.add("d-flex");
+  nextButton.classList.remove("d-none")
   cardContainer.classList.replace("d-none", "d-flex");
   results.style = "display: none";
   home.style = "display:flex;";
@@ -158,16 +159,16 @@ const printResult = () => {
   if (result >= 7) {
     resultCard2.classList.replace("bg-dark", "bg-success");
     congrats.classList.remove("hide");
-    feedback2.innerHTML = "Excelent!!! Good job!";
+    feedback2.innerHTML = "Excelent!!! Good job! Chris is proud of you!";
     goodResult.play();
   } else if (result >= 4 && result <= 6) {
     resultCard2.classList.replace("bg-dark", "bg-secondary");
     almost.classList.remove("hide");
-    feedback2.innerHTML = "Come on! You could do it better!";
+    feedback2.innerHTML = "Come on! You could do it better! Chris could be happier.";
   } else {
     deception.classList.remove("hide");
     resultCard2.classList.replace("bg-dark", "bg-danger");
-    feedback2.innerHTML = "Sorry, you need to work harder.";
+    feedback2.innerHTML = "Sorry, you need to work harder. Chris is upset.";
     badResult.play();
   }
 };
